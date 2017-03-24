@@ -37,7 +37,7 @@
         <a href="#" class="navbar-icon pull-right visible-xs" id="nav-btn"><i class="fa fa-bars fa-lg white"></i></a>
         <a href="#" class="navbar-icon pull-right visible-xs" id="sidebar-toggle-btn"><i class="fa fa-search fa-lg white"></i></a>
       </div>
-      <a class="navbar-brand" href="#">atlas arkansas</a>
+      <a class="navbar-brand" href="#">Atlas Arkansas</a>
     </div>
     <div class="navbar-collapse collapse">
       <form class="navbar-form navbar-right" role="search">
@@ -60,17 +60,16 @@
         <li class="dropdown">
           <a class="dropdown-toggle" id="downloadDrop" href="#" role="button" data-toggle="dropdown"><i class="fa fa-cloud-download white"></i>&nbsp;&nbsp;Download <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="location?categoryId=1" download="historicalmarkers.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Historical Markers</a></li>
-            <li><a href="location?categoryId=2" download="roadsideattractions.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Roadside Attractions</a></li>
-            <li><a href="location?categoryId=3" download="waterfalls.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Waterfalls</a></li>
-            <li><a href="location?categoryId=4" download="caves.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Caves</a></li>
-            <li><a href="location?categoryId=5" download="filmsites.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Film Sites</a></li>
-            <li><a href="location?categoryId=6" download="legends.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Legends</a></li>
-            <li><a href="location?categoryId=7" download="tbd.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;TBD</a></li>
-            <li><a href="location?categoryId=8" download="meteorites.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Meteorites</a></li>
-            <li><a href="location?categoryId=9" download="tbd.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;TBD</a></li>
-            <li><a href="location?categoryId=10" download="peaks.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Peaks</a></li>
-            <li><a href="isslocation" download="iss.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;ISS Location</a></li>
+            <li><a href="data/historicalmarkers.geojson" download="historicalmarkers.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Historical Markers</a></li>
+            <li><a href="data/roadsideattractions.geojson" download="roadsideattractions.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Roadside Attractions</a></li>
+            <li><a href="data/waterfalls.geojson" download="waterfalls.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Waterfalls</a></li>
+            <li><a href="data/caves.geojson" download="caves.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Caves</a></li>
+            <li><a href="data/filmsites.geojson" download="filmsites.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Film Sites</a></li>
+            <li><a href="data/legends.geojson" download="legends.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Legends</a></li>
+            <li><a href="data/tbd.geojson" download="tbd.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;TBD</a></li>
+            <li><a href="data/meteorites.geojson" download="meteorites.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Meteorites</a></li>
+            <li><a href="data/tbd.geojson" download="tbd.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;TBD</a></li>
+            <li><a href="data/peaks.geojson" download="peaks.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Peaks</a></li>    
           </ul>
         </li>
         <li class="hidden-xs"><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="list-btn"><i class="fa fa-list white"></i>&nbsp;&nbsp;POI List</a></li>
@@ -131,26 +130,25 @@
     <div class="modal-content">
       <div class="modal-header">
         <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Welcome to atlas arkansas!</h4>
+        <h4 class="modal-title">Welcome to Atlas Arkansas!</h4>
       </div>
       <div class="modal-body">
         <ul class="nav nav-tabs nav-justified" id="aboutTabs">
           <li class="active"><a href="#about" data-toggle="tab"><i class="fa fa-question-circle"></i>&nbsp;About the project</a></li>
-          <li><a href="#contact" data-toggle="tab"><i class="fa fa-envelope"></i>&nbsp;Contact us</a></li>
           <li><a href="#disclaimer" data-toggle="tab"><i class="fa fa-exclamation-circle"></i>&nbsp;Disclaimer</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i>&nbsp;Metadata <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="location?categoryId=1" data-toggle="tab">Historical Markers</a></li>
-              <li><a href="location?categoryId=2" data-toggle="tab">Roadside Attractions</a></li>
-              <li><a href="location?categoryId=3" data-toggle="tab">Waterfalls</a></li>
-              <li><a href="location?categoryId=4" data-toggle="tab">Caves</a></li>
-              <li><a href="location?categoryId=5" data-toggle="tab">Film Sites</a></li>
-              <li><a href="location?categoryId=6" data-toggle="tab">Legends</a></li>
-              <li><a href="location?categoryId=7" data-toggle="tab">TBD</a></li>
-              <li><a href="location?categoryId=8" data-toggle="tab">Meteorites</a></li>
-              <li><a href="location?categoryId=9" data-toggle="tab">TBD</a></li>
-              <li><a href="location?categoryId=10" data-toggle="tab">Peaks</a></li>
+              <li><a href="data/historicalmarkers.geojson" data-toggle="tab">Historical Markers</a></li>
+              <li><a href="data/roadsideattractions.geojson" data-toggle="tab">Roadside Attractions</a></li>
+              <li><a href="data/waterfalls.geojson" data-toggle="tab">Waterfalls</a></li>
+              <li><a href="data/caves.geojson" data-toggle="tab">Caves</a></li>
+              <li><a href="data/filmsites.geojson" data-toggle="tab">Film Sites</a></li>
+              <li><a href="data/legends.geojson" data-toggle="tab">Legends</a></li>
+              <li><a href="data/TBD.geojson" data-toggle="tab">TBD</a></li>
+              <li><a href="data/meteorites.geojson" data-toggle="tab">Meteorites</a></li>
+              <li><a href="data/TBD.geojson" data-toggle="tab">TBD</a></li>
+              <li><a href="data/Peaks.geojson" data-toggle="tab">Peaks</a></li>
             </ul>
           </li>
         </ul>
@@ -170,54 +168,25 @@
                 <li class="list-group-item">Marker icons included in grouped layer control via the <a href="https://github.com/ismyrnow/Leaflet.groupedlayercontrol" target="_blank">grouped layer control plugin</a></li>
               </ul>
             </div>
-          </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">About Us</div>
+                <ul class="list-group">
+                <li class="list-group-item">Nathan Brown - <a href="https://github.com/nathnbrown" target="_blank">GitHub: nathnbrown</a></li>
+                <li class="list-group-item">Harley Arnold - <a href="https://github.com/harleyA" target="_blank">GitHub: harleyA</a></li>
+              </ul>
+            </div>
+        </div>
           <div id="disclaimer" class="tab-pane fade text-danger">
             <p>The data provided on this site is for informational and planning purposes only.</p>
             <p>Absolutely no accuracy or completeness guarantee is implied or intended. All information on this map is subject to such variations and corrections as might result from a complete title search and/or accurate field survey.</p>
           </div>
-          <div class="tab-pane fade" id="contact">
-            <form id="contact-form">
-              <div class="well well-sm">
-                <div class="row">
-                  <div class="col-md-4">
+             <div class="col-md-4">
                     <div class="form-group">
-                      <label for="first-name">First Name:</label>
-                      <input type="text" class="form-control" id="first-name">
-                    </div>
-                    <div class="form-group">
-                      <label for="last-name">Last Name:</label>
-                      <input type="text" class="form-control" id="last-email">
-                    </div>
-                    <div class="form-group">
-                      <label for="email">Email:</label>
-                      <input type="text" class="form-control" id="email">
-                    </div>
-                  </div>
-                  <div class="col-md-8">
-                    <label for="message">Message:</label>
-                    <textarea class="form-control" rows="8" id="message"></textarea>
-                  </div>
-                  <div class="col-md-12">
-                    <p>
-                      <button type="submit" class="btn btn-primary pull-right" data-dismiss="modal">Submit</button>
-                    </p>
-                  </div>
+
                 </div>
               </div>
             </form>
-          </div>
-          <div class="tab-pane fade" id="boroughs-tab">
-            <p>Borough data courtesy of <a href="http://www.nyc.gov/html/dcp/pdf/bytes/nybbwi_metadata.pdf" target="_blank">New York City Department of City Planning</a></p>
-          </div>
-          <div class="tab-pane fade" id="subway-lines-tab">
-            <p><a href="http://spatialityblog.com/2010/07/08/mta-gis-data-update/#datalinks" target="_blank">MTA Subway data</a> courtesy of the <a href="http://www.urbanresearch.org/about/cur-components/cuny-mapping-service" target="_blank">CUNY Mapping Service at the Center for Urban Research</a></p>
-          </div>
-          <div class="tab-pane fade" id="theaters-tab">
-            <p>Theater data courtesy of <a href="https://data.cityofnewyork.us/Recreation/Theaters/kdu2-865w" target="_blank">NYC Department of Information & Telecommunications (DoITT)</a></p>
-          </div>
-          <div class="tab-pane fade" id="museums-tab">
-            <p>Museum data courtesy of <a href="https://data.cityofnewyork.us/Recreation/Museums-and-Galleries/sat5-adpb" target="_blank">NYC Department of Information & Telecommunications (DoITT)</a></p>
-          </div>
+          </div>          
         </div>
       </div>
       <div class="modal-footer">

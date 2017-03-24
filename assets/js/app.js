@@ -1,4 +1,4 @@
-var map, featureList, arkansasSearch = [], caveSearch = [], waterfallSearch = [], historicalMarkerSearch = [], filmSiteSearch = [], roadsideAttractionSearch = [], legendSearch = [], meteoriteSearch = [], peakSearch = [], issSearch = [];   		
+var map, featureList, arkansasSearch = [], caveSearch = [], waterfallSearch = [], historicalMarkerSearch = [], filmSiteSearch = [], roadsideAttractionSearch = [], legendSearch = [], meteoriteSearch = [], peakSearch = [];   		
 
 $(window).resize(function() {
   sizeLayerControl();
@@ -155,14 +155,7 @@ function syncSidebar() {
       }
     }
   });
-     /* Loop through iss layer and add only features which are in the map bounds */
-  isss.eachLayer(function (layer) {
-    if (map.hasLayer(issLayer)) {
-      if (map.getBounds().contains(layer.getLatLng())) {
-        $("#feature-list tbody").append('<tr class="feature-row" id="' + L.stamp(layer) + '" lat="' + layer.getLatLng().lat + '" lng="' + layer.getLatLng().lng + '"><td style="vertical-align: middle;"><img width="16" height="18" src="assets/img/iss.png"></td><td class="feature-name">' + layer.feature.properties.NAME + '</td><td style="vertical-align: middle;"><i class="fa fa-chevron-right pull-right"></i></td></tr>');
-      }
-    }
-  });
+    
   /* Update list.js featureList */
   featureList = new List("features", {
     valueNames: ["feature-name"]
@@ -645,48 +638,6 @@ $.getJSON("data/peaks.geojson", function (data) {
   peaks.addData(data);
 });
 
-/* Empty layer placeholder to add to layer control for listening when to add/remove isss to markerClusters layer */
-var issLayer = L.geoJson(null);
-var isss = L.geoJson(null, {
-  pointToLayer: function (feature, latlng) {
-    return L.marker(latlng, {
-      icon: L.icon({
-        iconUrl: "assets/img/iss.png",
-        iconSize: [24, 28],
-        iconAnchor: [12, 28],
-        popupAnchor: [0, -25]
-      }),
-      title: feature.properties.NAME,
-      riseOnHover: true
-    });
-  },
-  onEachFeature: function (feature, layer) {
-    if (feature.properties) {
-      var content = "<table class='table table-striped table-bordered table-condensed'>" + "<tr><th>Name</th><td>" + feature.properties.NAME + "<tr><th>Description</th><td>" + feature.properties.DESCRIPTION + "</td></tr>" + "</td></tr>" + "</td></tr>" + "<tr><th>Latitude</th><td>" + layer.feature.geometry.coordinates[1] + "<tr><th>Longitude</th><td>" + layer.feature.geometry.coordinates[0] + "<tr><th>Website</th><td><a class='url-break' href='" + feature.properties.URL + "' target='_blank'>" + feature.properties.URL + "</a></td></tr>" + "<table>";
-      layer.on({
-        click: function (e) {
-          $("#feature-title").html(feature.properties.NAME);
-          $("#feature-info").html(content);
-          $("#featureModal").modal("show");
-          highlight.clearLayers().addLayer(L.circleMarker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], highlightStyle));
-        }
-      });
-      $("#feature-list tbody").append('<tr class="feature-row" id="' + L.stamp(layer) + '" lat="' + layer.getLatLng().lat + '" lng="' + layer.getLatLng().lng + '"><td style="vertical-align: middle;"><img width="16" height="18" src="assets/img/iss.png"></td><td class="feature-name">' + layer.feature.properties.NAME + '</td><td style="vertical-align: middle;"><i class="fa fa-chevron-right pull-right"></i></td></tr>');
-      issSearch.push({
-        name: layer.feature.properties.NAME,
-        address: layer.feature.properties.ADRESS1,
-        source: "ISS",
-        id: L.stamp(layer),
-        lat: layer.feature.geometry.coordinates[1],
-        lng: layer.feature.geometry.coordinates[0]
-      });
-    }
-  }
-});
-$.getJSON("isslocation", function (data) {
-  isss.addData(data);
-});
-
 map = L.map("map", {
   zoom: 7,
   center: [35.0887000, -92.4421000],
@@ -729,10 +680,6 @@ map.on("overlayadd", function(e) {
     markerClusters.addLayer(peaks);
     syncSidebar();
   }
-  if (e.layer === issLayer) {
-    markerClusters.addLayer(isss);
-    syncSidebar();
-  }
 });
 
 map.on("overlayremove", function(e) {
@@ -768,10 +715,7 @@ map.on("overlayremove", function(e) {
     markerClusters.removeLayer(peaks);
     syncSidebar();
   }
-  if (e.layer === issLayer) {
-    markerClusters.removeLayer(isss);
-    syncSidebar();
-  }
+  
 });
 
 /* Filter sidebar feature list to only show features in current map bounds */
@@ -866,8 +810,8 @@ var groupedOverlays = {
     "<img src='assets/img/roadsideattraction.png' width='24' height='28'>&nbsp;Roadside Attractions": roadsideAttractionLayer,
     "<img src='assets/img/legend.png' width='24' height='28'>&nbsp;Legends": legendLayer,
     "<img src='assets/img/meteorite.png' width='24' height='28'>&nbsp;Meteorites": meteoriteLayer,
-    "<img src='assets/img/peak.png' width='24' height='28'>&nbsp;Peaks": peakLayer,
-    "<img src='assets/img/iss.png' width='24' height='28'>&nbsp;ISS": issLayer
+    "<img src='assets/img/peak.png' width='24' height='28'>&nbsp;Peaks": peakLayer
+    
 
   },
   "Reference": {
@@ -995,15 +939,6 @@ $(document).one("ajaxStop", function () {
     limit: 10
   });
 
-    var isssBH = new Bloodhound({
-    name: "ISS",
-    datumTokenizer: function (d) {
-      return Bloodhound.tokenizers.whitespace(d.name);
-    },
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    local: issSearch,
-    limit: 10
-  });
 
   var geonamesBH = new Bloodhound({
     name: "GeoNames",
@@ -1044,7 +979,6 @@ $(document).one("ajaxStop", function () {
   legendsBH.initialize();
   meteoritesBH.initialize();
   peaksBH.initialize();
-  isssBH.initialize();
   geonamesBH.initialize();
 
   /* instantiate the typeahead UI */
@@ -1131,15 +1065,6 @@ $(document).one("ajaxStop", function () {
     }
   },
   {
-    name: "ISS",
-    displayKey: "name",
-    source: isssBH.ttAdapter(),
-    templates: {
-      header: "<h4 class='typeahead-header'><img src='assets/img/iss.png' width='24' height='28'>&nbsp;ISS</h4>",
-      suggestion: Handlebars.compile(["{{name}}<br>&nbsp;<small>{{address}}</small>"].join(""))
-    }
-  },
-  {
     name: "GeoNames",
     displayKey: "name",
     source: geonamesBH.ttAdapter(),
@@ -1222,15 +1147,7 @@ $(document).one("ajaxStop", function () {
         map._layers[datum.id].fire("click");
       }
     }
-    if (datum.source === "ISS") {
-      if (!map.hasLayer(issLayer)) {
-        map.addLayer(issLayer);
-      }
-      map.setView([datum.lat, datum.lng], 17);
-      if (map._layers[datum.id]) {
-        map._layers[datum.id].fire("click");
-      }
-    }
+    
     if (datum.source === "GeoNames") {
       map.setView([datum.lat, datum.lng], 14);
     }

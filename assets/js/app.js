@@ -518,7 +518,7 @@ var roadsideAttractions = L.geoJson(null, {
     }
   }
 });
-$.getJSON("roadsideattractions", function (data) {
+$.getJSON("data/roadsideattractions.geojson", function (data) {
   roadsideAttractions.addData(data);
 });
 /* Empty layer placeholder to add to layer control for listening when to add/remove legends to markerClusters layer */

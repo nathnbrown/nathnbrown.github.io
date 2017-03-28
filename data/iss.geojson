@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","id":7,"properties":{"NAME":"International Space Station","URL":"iss.astroviewer.net","DESCRIPTION":"Not current location of ISS! Shown for demo only. Placeholder for the API call of ISS location in full version of web app."},"geometry":{"type":"Point","coordinates":[-95.347950,34.921365]}}]}
